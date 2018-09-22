@@ -1,0 +1,58 @@
+<!doctype HTML>
+<html>
+    <head>
+        <title></title>
+
+    </head>
+<body>
+    <h1>Shopping Cart</h1>
+
+
+    <script>
+        var cart = [];
+        //name price count x X
+        var Item = function ( name, price, count) {
+            this.name = name
+            this.price = price
+            this.count = count
+
+        };
+
+
+        function addItemToCart(name, price, count){
+
+            for( var i in cart){
+                if(cart[i].name === name){
+                cart[i].count += count;
+                return;
+                } //used if you add the same item more than once
+            }
+            var item = new Item(name, price, count);
+            cart.push(item);
+        };
+
+        addItemToCart("Apples", 2.00, 4);
+        addItemToCart("Apples", 2.00, 4);
+        addItemToCart("Pears", 2.00, 4);
+        console.log(cart);
+//
+//        removeItemFromCart(name); //removes 1 item
+//
+//        removeItemFromCartAll(name); //removes all items
+//
+//        clearCart();
+//
+//        countCart();
+//
+//        totalCart(); //total price
+//
+//        listCart(); //array of Items listed in HTML
+//
+//        saveCart();
+//
+//        loadCart();
+
+    </script>
+</body>
+</html>
+
