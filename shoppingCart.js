@@ -1,3 +1,64 @@
+     $(".addToCart").click(function(event) {
+            event.preventDefault(); //prevents link from doing its normal link behavior
+            var name = $(this).attr("data-name"); //(this) is to select just the one thats clicked. attr for accessing one of the attributes in the link
+            var price = Number($(this).attr("data-price")); //Number converts string to number if needed
+            shoppingCart.addItemToCart(name, price, 1);
+            displayCart();
+        })
+
+        $("#clearCart").click(function(event) {
+            shoppingCart.clearCart();
+            displayCart();
+        });
+
+        function displayCart() {
+            var cartArray = shoppingCart.listCart();
+            var output = "";
+            for (var i in cartArray) {
+                output += "<li>"
+                    +cartArray[i].name
+                    +" <input class='itemCount' type='number' data-name='"
+                    +cartArray[i].name
+                    +"'value='"+cartArray[i].count+"'>"
+                    +" x " + cartArray[i].price
+                    +" = " + cartArray[i].total
+                    +" <button class='plusItem' data-name='" + cartArray[i].name + "'>+</button>"
+                    +" <button class='subtractItem' data-name='" + cartArray[i].name + "'>-</button>"
+                    +" <button class='deleteItem' data-name='" + cartArray[i].name + "'>Delete Item</button>"
+                    +"</li>";
+            }
+            $("#showCart").html(output);
+            $("#count_Cart").html(shoppingCart.countCart());
+            $('#totalCart').html(shoppingCart.totalCart()); // calls function of total value
+        }
+
+        $('#showCart').on("click", ".deleteItem", function(event) {
+            var name = $(this).attr("data-name");
+            shoppingCart.removeItemFromCartAll(name);
+            displayCart();
+        });
+
+        $('#showCart').on("click", ".subtractItem", function(event) {
+            var name = $(this).attr("data-name");
+            shoppingCart.removeItemFromCart(name);
+            displayCart();
+        });
+
+        $('#showCart').on("click", ".plusItem", function(event) {
+            var name = $(this).attr("data-name");
+            shoppingCart.addItemToCart(name, 0, 1);
+            displayCart();
+        });
+
+        $('#showCart').on("change", ".itemCount", function (event){
+            var name = $(this).attr("data-name")
+            var count = Number ($(this).val()); //turns string into number
+            shoppingCart.setCountForItem(name, count);
+            displayCart();
+        });
+
+
+
 var shoppingCart = {};
 shoppingCart.cart = [];
 shoppingCart.Item = function (name, price, count) {
@@ -96,7 +157,9 @@ shoppingCart.loadCart = function () {
     this.cart = JSON.parse(localStorage.getItem("shoppingCart"));
 };
 
+
 shoppingCart.loadCart();
+displayCart();
 
 //Raw Functions
 
@@ -210,61 +273,3 @@ shoppingCart.loadCart();
 //        loadCart();
 //        displayCart();
 
-        $(".addToCart").click(function(event) {
-            event.preventDefault(); //prevents link from doing its normal link behavior
-            var name = $(this).attr("data-name"); //(this) is to select just the one thats clicked. attr for accessing one of the attributes in the link
-            var price = Number($(this).attr("data-price")); //Number converts string to number if needed
-            shoppingCart.addItemToCart(name, price, 1);
-            displayCart();
-        })
-
-        $("#clearCart").click(function(event) {
-            shoppingCart.clearCart();
-            displayCart();
-        });
-
-        function displayCart() {
-            var cartArray = shoppingCart.listCart();
-            var output = "";
-            for (var i in cartArray) {
-                output += "<li>"
-                    +cartArray[i].name
-                    +" <input class='itemCount' type='number' data-name='"
-                    +cartArray[i].name
-                    +"'value='"+cartArray[i].count+"'>"
-                    +" x " + cartArray[i].price
-                    +" = " + cartArray[i].total
-                    +" <button class='plusItem' data-name='" + cartArray[i].name + "'>+</button>"
-                    +" <button class='subtractItem' data-name='" + cartArray[i].name + "'>-</button>"
-                    +" <button class='deleteItem' data-name='" + cartArray[i].name + "'>Delete Item</button>"
-                    +"</li>";
-            }
-            $("#showCart").html(output);
-            $("#count_Cart").html(shoppingCart.countCart());
-            $('#totalCart').html(shoppingCart.totalCart()); // calls function of total value
-        }
-
-        $('#showCart').on("click", ".deleteItem", function(event) {
-            var name = $(this).attr("data-name");
-            shoppingCart.removeItemFromCartAll(name);
-            displayCart();
-        });
-
-        $('#showCart').on("click", ".subtractItem", function(event) {
-            var name = $(this).attr("data-name");
-            shoppingCart.removeItemFromCart(name);
-            displayCart();
-        });
-
-        $('#showCart').on("click", ".plusItem", function(event) {
-            var name = $(this).attr("data-name");
-            shoppingCart.addItemToCart(name, 0, 1);
-            displayCart();
-        });
-
-        $('#showCart').on("change", ".itemCount", function (event){
-            var name = $(this).attr("data-name")
-            var count = Number ($(this).val()); //turns string into number
-            shoppingCart.setCountForItem(name, count);
-            displayCart();
-        });
