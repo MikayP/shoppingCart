@@ -2,20 +2,35 @@
 <html>
     <head>
     <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h1>Shopping Cart</h1>
+    <h1 class="title">Shopping Cart</h1>
 
-    <div>
-        <ul>
-            <li><a class="addToCart" href="#" data-name="Apples" data-price="2.20">Apples $2.20</a></li>
-            <li><a class="addToCart" href="#" data-name="Bananas" data-price="0.82">Bananas $0.82</a></li>
-            <li><a class="addToCart" href="#" data-name="Grapes" data-price="1.80">Grapes $1.80</a></li>
+    <div class="allTheJellies">
+        <ul class="jellyList">
+            <li><a class="addToCart" href="#" data-name="Cherry" data-price="2.20">
+            <div class="relative">
+            <img src="images/cherry.jpg"><br>
+            <div class="photoOverlay">
+
+            Cherry $2.20
+            </div>
+            </div></a></li>
+            <li><a class="addToCart" href="#" data-name="GreenApple" data-price="2.85"><img src="images/greenapple.jpg"><br>Green Apple $2.85</a></li>
+            <li><a class="addToCart" href="#" data-name="Licorice" data-price="1.80"><img src="images/licorice.jpg"><br>Licorice $1.80</a></li>
         </ul>
-        <button id="clearCart">Clear Cart</button>
+        <ul class="jellyList">
+            <li><a class="addToCart" href="#" data-name="Pear" data-price="4.80"><img src="images/pear.jpeg"><br>Pear $4.80</a></li>
+            <li><a class="addToCart" href="#" data-name="Popcorn" data-price="0.40"><img src="images/popcorn.jpg"><br>Popcorn $0.40</a></li>
+            <li><a class="addToCart" href="#" data-name="Watermelon" data-price="2.40"><img src="images/watermelon.jpg"><br>Watermelon $2.40</a></li>
+        </ul>
+
     </div>
+
 
     <div>
         <ul id="showCart">
@@ -28,6 +43,10 @@
             Total Cart: $<span id="totalCart"></span>
         </div>
     </div>
+
+
+    <button id="clearCart">Clear Cart</button>
+
 
     <script src="shoppingCart.js"></script>
 
