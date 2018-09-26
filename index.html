@@ -8,31 +8,80 @@
 </head>
 
 <body>
-    <h1 class="title">Shopping Cart</h1>
+    <h1 class="title">Got Jelly Beans?</h1>
 
     <div class="allTheJellies">
         <ul class="jellyList">
-            <li><a class="addToCart" href="#" data-name="Cherry" data-price="2.20">
-            <div class="relative">
-            <img src="images/cherry.jpg"><br>
-            <div class="photoOverlay">
+            <li class="inlineJellies"><a class="addToCart" href="#" data-name="Cherry" data-price="2.20">
+                    <div class="relative">
+                        <img src="images/cherry.jpg"><br>
+                        <div class="photoOverlay">
+                            Cherry $2.20
+                        </div>
+                    </div>
+                </a>
+            </li>
 
-            Cherry $2.20
-            </div>
-            </div></a></li>
-            <li><a class="addToCart" href="#" data-name="GreenApple" data-price="2.85"><img src="images/greenapple.jpg"><br>Green Apple $2.85</a></li>
-            <li><a class="addToCart" href="#" data-name="Licorice" data-price="1.80"><img src="images/licorice.jpg"><br>Licorice $1.80</a></li>
+            <li class="inlineJellies">
+                <a class="addToCart" href="#" data-name="GreenApple" data-price="2.85">
+                    <div class="relative">
+                        <img src="images/greenapple.jpg">
+                        <div class="photoOverlay">
+                            Green Apple $2.85
+                        </div>
+                    </div>
+                </a>
+            </li>
+
+            <li class="inlineJellies">
+                <a class="addToCart" href="#" data-name="Licorice" data-price="1.80">
+                    <div class="relative">
+                        <img src="images/licorice.jpg">
+                        <div class="photoOverlay">
+                            Licorice $1.80
+                        </div>
+                    </div>
+                </a>
+            </li>
         </ul>
+
         <ul class="jellyList">
-            <li><a class="addToCart" href="#" data-name="Pear" data-price="4.80"><img src="images/pear.jpeg"><br>Pear $4.80</a></li>
-            <li><a class="addToCart" href="#" data-name="Popcorn" data-price="0.40"><img src="images/popcorn.jpg"><br>Popcorn $0.40</a></li>
-            <li><a class="addToCart" href="#" data-name="Watermelon" data-price="2.40"><img src="images/watermelon.jpg"><br>Watermelon $2.40</a></li>
+            <li class="inlineJellies">
+                <a class="addToCart" href="#" data-name="Pear" data-price="4.80">
+                    <div class="relative">
+                        <img src="images/pear.jpeg">
+                        <div class="photoOverlay">
+                            Pear $4.80
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="inlineJellies">
+                <a class="addToCart" href="#" data-name="Popcorn" data-price="0.40">
+                    <div class="relative">
+                        <img src="images/popcorn.jpg">
+                        <div class="photoOverlay">
+                            Popcorn $0.40
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="inlineJellies">
+                <a class="addToCart" href="#" data-name="Watermelon" data-price="2.40">
+                    <div class="relative">
+                        <img src="images/watermelon.jpg">
+                        <div class="photoOverlay">
+                            Watermelon $2.40
+                        </div>
+                    </div>
+                </a>
+            </li>
         </ul>
 
     </div>
 
 
-    <div>
+    <div class="cartTotals">
         <ul id="showCart">
             <!--            -->
         </ul>
@@ -42,10 +91,11 @@
         <div>
             Total Cart: $<span id="totalCart"></span>
         </div>
+
+    <button id="clearCart">Clear Cart</button>
     </div>
 
 
-    <button id="clearCart">Clear Cart</button>
 
 
     <script src="shoppingCart.js"></script>

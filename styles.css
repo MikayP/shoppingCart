@@ -1,12 +1,15 @@
 body {
-    background-color: rgba(69, 92, 214, 0.6)
+    background-color: rgba(0, 40, 255, 0.73)
 }
 
 li {
     list-style-type: none;
-    display: inline-block;
+
 }
 
+.inlineJellies{
+    display: inline-block;
+}
 .allTheJellies {
     margin: 0 auto;
 }
@@ -27,15 +30,24 @@ li {
 
 .photoOverlay{
     position: absolute;
-    top: 50%;
+    top: 45%;
 	right: 0;
 	bottom: 0;
 	left: 0;
+  opacity: 0;
+    transition-duration: 0.6s;
+    font-size:2.2em;
+      font-family: 'Do Hyeon', sans-serif;
+    color:white;
+    text-shadow: 3px 3px 4px black;
 }
 
+.photoOverlay:hover{
+    opacity: 1.0;
+}
 img {
-    height: 230px;
-    width: 300px;
+    height: 200px;
+    width: 270px;
     border-radius: 50%;
     margin: 20px;
     border: solid 1px black;
@@ -48,4 +60,23 @@ img {
     font-size: 80px;
     text-align: center;
     color: rgb(255, 255, 255);
+    margin:0;
 }
+
+.cartTotals{
+    font-size: 1.3em;
+    text-align: center;
+      font-family: 'Do Hyeon', sans-serif;
+    color:white;
+}
+
+.subtractItem, .plusItem{
+    height:40px;
+    width:40px;
+}
+
+.deleteItem, #clearCart{
+    height:40px;
+    width:100px;
+}
+
